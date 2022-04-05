@@ -136,7 +136,7 @@ while True:
                   str(time_to_sleep.microseconds) + " microseconds")
         # print("curr time :", curr_time.utc_strftime('%Y %b %d %H:%M:%S'),
         #       "| sleep time :", time_to_sleep.seconds, "seconds or", time_to_sleep.microseconds, "microseconds")
-        time.sleep(time_to_sleep.microseconds)
+        time.sleep(time_to_sleep.seconds)
         #######
         logging.info("time after sleep : " + val.time.utc_strftime('%Y %m %d %H:%M:%S'))
         # print("time after sleep :", val.time.utc_strftime('%Y %b %d %H:%M:%S'), "\n------------------------")
