@@ -1,0 +1,23 @@
+.tree span:hover {
+	font-weight: bold;
+}
+
+.tree span {
+	cursor: pointer;
+}
+.container {
+	display: flex;
+	justify-content: space-between;
+	padding: 1em;
+	box-sizing: border-box;
+}
+
+.container div {
+	width: 50em;
+	height: 20em;
+}
+
+.subClassButton {
+	float: right;
+	margin-right: 10px;
+}

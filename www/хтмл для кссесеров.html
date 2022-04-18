@@ -1,0 +1,103 @@
+
+<!doctype html>
+<html>
+<head>
+ <link rel="stylesheet" href="style.css">
+<title>Main</title>
+ </head>
+<body>
+<div class="container">
+	<div>
+		<ul class="tree" id="tree">
+		 
+			<i><h3>Спутниковые снимки погоды</h3></i>
+			<hr><hr> 					<li>Все снимки за 2022-04-06					<form class="subClassButton" action="buildArch.php?date=2022-04-06" method="post">
+					<input type="submit" name="buildArch"  value="Скачать все снимки"> <br>
+					</form>
+					<hr>
+					 <ul>
+									<li> --Снимок за 2022-04-06 время = 15:00:00 <br>
+				<img src="img/img1.png" width="450" height="255">
+				</li>
+								<li> --Снимок за 2022-04-06 время = 16:30:00 <br>
+				<img src="img/img2.png" width="450" height="255">
+				</li>
+				</ul>						</li><br>					<li>Все снимки за 2022-04-07					<form class="subClassButton" action="buildArch.php?date=2022-04-07" method="post">
+					<input type="submit" name="buildArch"  value="Скачать все снимки"> <br>
+					</form>
+					<hr>
+					 <ul>
+									<li> --Снимок за 2022-04-07 время = 11:02:00 <br>
+				<img src="img/img3.png" width="450" height="255">
+				</li>
+								<li> --Снимок за 2022-04-07 время = 16:35:00 <br>
+				<img src="img/img3.png" width="450" height="255">
+				</li>
+				</ul>						</li><br>					<li>Все снимки за 2022-04-08					<form class="subClassButton" action="buildArch.php?date=2022-04-08" method="post">
+					<input type="submit" name="buildArch"  value="Скачать все снимки"> <br>
+					</form>
+					<hr>
+					 <ul>
+									<li> --Снимок за 2022-04-08 время = 15:13:00 <br>
+				<img src="img/img3.png" width="450" height="255">
+				</li>
+						</ul>
+		<br><br>
+		<hr><hr>
+		<p>тестовая форма для новой записи в бд тест с крипта и тд (это не трогать)</p>
+		<form action="script_tipa.php" method="post">
+			<label>Введите имя картинки</label><br>
+			<input type="text" name="pathImg"><br>
+			<label>Введите дату</label><br>
+			<input type="text" name="date"><br>
+			<label>Введите время</label><br>
+			<input type="text" name="time"><br>
+			<br>
+			<input type="submit" name="formSubmit" value="Добавить">
+		</form>
+	</div>
+	<div>
+		<!--<form action="script_tipa.php" method="post">
+			<label>Введите имя картинки</label><br>
+			<input type="text" name="pathImg"><br>
+			<label>Введите дату</label><br>
+			<input type="text" name="date"><br>
+			<label>Введите время</label><br>
+			<input type="text" name="time"><br>
+			<br>
+			<input type="submit" name="formSubmit" value="Добавить">
+		</form>-->
+	</div>
+</div>
+	
+	
+	<script>
+	
+	function pop_up(mas){
+		var splitMas = mas.split();
+		
+	}
+	
+	
+    // поместить все текстовые узлы в элемент <span>
+    // он занимает только то место, которое необходимо для текста
+    for (let li of tree.querySelectorAll('li')) {
+      let span = document.createElement('span');
+      li.prepend(span);
+      span.append(span.nextSibling); // поместить текстовый узел внутрь элемента <span>
+    }
+
+    //  ловим клики на всём дереве
+    tree.onclick = function(event) {
+
+      if (event.target.tagName != 'SPAN') {
+        return;
+      }
+
+      let childrenContainer = event.target.parentNode.querySelector('ul');
+      if (!childrenContainer) return; // нет детей
+
+      childrenContainer.hidden = !childrenContainer.hidden;
+    }
+  </script>
+</body></html>
