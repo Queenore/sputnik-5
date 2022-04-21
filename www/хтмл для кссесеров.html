@@ -3,6 +3,7 @@
 <html>
 <head>
  <link rel="stylesheet" href="style.css">
+ <link rel="stylesheet" href="dist/css/lightbox.css">
 <title>Main</title>
  </head>
 <body>
@@ -11,38 +12,65 @@
 		<ul class="tree" id="tree">
 		 
 			<i><h3>Спутниковые снимки погоды</h3></i>
-			<hr><hr> 					<li>Все снимки за 2022-04-06					<form class="subClassButton" action="buildArch.php?date=2022-04-06" method="post">
+			<hr><hr> 					<li class ="select">Все снимки за 2022-04-09					<form class="subClassButton" action="buildArch.php?date=2022-04-09" method="post">
 					<input type="submit" name="buildArch"  value="Скачать все снимки"> <br>
 					</form>
 					<hr>
-					 <ul>
-									<li> --Снимок за 2022-04-06 время = 15:00:00 <br>
-				<img src="img/img1.png" width="450" height="255">
+					 <ul hidden class="vlozen" id="vlozen">
+									<li> --Снимок за 2022-04-09 время = 16:12:23 <br>
+				<a href="img/img3.png" data-lightbox="test"><img src="img/img3.png" width="450" height="255" alt="no-image"></a>
 				</li>
-								<li> --Снимок за 2022-04-06 время = 16:30:00 <br>
-				<img src="img/img2.png" width="450" height="255">
+								<li> --Снимок за 2022-04-09 время = 16:12:23 <br>
+				<a href="img/img3.png" data-lightbox="test"><img src="img/img3.png" width="450" height="255" alt="no-image"></a>
 				</li>
-				</ul>						</li><br>					<li>Все снимки за 2022-04-07					<form class="subClassButton" action="buildArch.php?date=2022-04-07" method="post">
+								<li> --Снимок за 2022-04-09 время = 16:12:23 <br>
+				<a href="img/img3.png" data-lightbox="test"><img src="img/img3.png" width="450" height="255" alt="no-image"></a>
+				</li>
+				</ul>						</li><br>					<li class ="select">Все снимки за 2022-04-08					<form class="subClassButton" action="buildArch.php?date=2022-04-08" method="post">
 					<input type="submit" name="buildArch"  value="Скачать все снимки"> <br>
 					</form>
 					<hr>
-					 <ul>
+					 <ul hidden class="vlozen" id="vlozen">
+									<li> --Снимок за 2022-04-08 время = 15:13:00 <br>
+				<a href="img/img3.png" data-lightbox="test"><img src="img/img3.png" width="450" height="255" alt="no-image"></a>
+				</li>
+				</ul>						</li><br>					<li class ="select">Все снимки за 2022-04-07					<form class="subClassButton" action="buildArch.php?date=2022-04-07" method="post">
+					<input type="submit" name="buildArch"  value="Скачать все снимки"> <br>
+					</form>
+					<hr>
+					 <ul hidden class="vlozen" id="vlozen">
 									<li> --Снимок за 2022-04-07 время = 11:02:00 <br>
-				<img src="img/img3.png" width="450" height="255">
+				<a href="img/img3.png" data-lightbox="test"><img src="img/img3.png" width="450" height="255" alt="no-image"></a>
 				</li>
 								<li> --Снимок за 2022-04-07 время = 16:35:00 <br>
-				<img src="img/img3.png" width="450" height="255">
+				<a href="img/img3.png" data-lightbox="test"><img src="img/img3.png" width="450" height="255" alt="no-image"></a>
 				</li>
-				</ul>						</li><br>					<li>Все снимки за 2022-04-08					<form class="subClassButton" action="buildArch.php?date=2022-04-08" method="post">
+				</ul>						</li><br>					<li class ="select">Все снимки за 2022-04-06					<form class="subClassButton" action="buildArch.php?date=2022-04-06" method="post">
 					<input type="submit" name="buildArch"  value="Скачать все снимки"> <br>
 					</form>
 					<hr>
-					 <ul>
-									<li> --Снимок за 2022-04-08 время = 15:13:00 <br>
-				<img src="img/img3.png" width="450" height="255">
+					 <ul hidden class="vlozen" id="vlozen">
+									<li> --Снимок за 2022-04-06 время = 15:00:00 <br>
+				<a href="img/img1.png" data-lightbox="test"><img src="img/img1.png" width="450" height="255" alt="no-image"></a>
+				</li>
+								<li> --Снимок за 2022-04-06 время = 16:30:00 <br>
+				<a href="img/img2.png" data-lightbox="test"><img src="img/img2.png" width="450" height="255" alt="no-image"></a>
+				</li>
+				</ul>						</li><br>					<li class ="select">Все снимки за 2022-03-08					<form class="subClassButton" action="buildArch.php?date=2022-03-08" method="post">
+					<input type="submit" name="buildArch"  value="Скачать все снимки"> <br>
+					</form>
+					<hr>
+					 <ul hidden class="vlozen" id="vlozen">
+									<li> --Снимок за 2022-03-08 время = 16:30:00 <br>
+				<a href="img/img3.png" data-lightbox="test"><img src="img/img3.png" width="450" height="255" alt="no-image"></a>
 				</li>
 						</ul>
 		<br><br>
+		<hr><hr>
+		<br>Количество снимков 9
+		
+		
+		
 		<hr><hr>
 		<p>тестовая форма для новой записи в бд тест с крипта и тд (это не трогать)</p>
 		<form action="script_tipa.php" method="post">
@@ -70,24 +98,14 @@
 	</div>
 </div>
 	
-	
+	<script src="dist/js/lightbox-plus-jquery.min.js"></script>
 	<script>
-	
-	function pop_up(mas){
-		var splitMas = mas.split();
-		
-	}
-	
-	
-    // поместить все текстовые узлы в элемент <span>
-    // он занимает только то место, которое необходимо для текста
     for (let li of tree.querySelectorAll('li')) {
       let span = document.createElement('span');
       li.prepend(span);
-      span.append(span.nextSibling); // поместить текстовый узел внутрь элемента <span>
+      span.append(span.nextSibling); 
     }
 
-    //  ловим клики на всём дереве
     tree.onclick = function(event) {
 
       if (event.target.tagName != 'SPAN') {
@@ -95,7 +113,7 @@
       }
 
       let childrenContainer = event.target.parentNode.querySelector('ul');
-      if (!childrenContainer) return; // нет детей
+      if (!childrenContainer) return; 
 
       childrenContainer.hidden = !childrenContainer.hidden;
     }
