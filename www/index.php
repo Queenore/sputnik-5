@@ -10,20 +10,18 @@
 	<div>
 		<ul class="tree" id="tree">
 		<?php 
-			require_once 'connectBD.php';
+				require_once 'connectBD.php';
 			?> 
 			<i><h3>Спутниковые снимки погоды</h3></i>
-			<hr><hr> <?
-			$query = "SELECT * FROM testtable ORDER BY 3 DESC";
-			$res = mysql_query($query); 
+			<hr><hr> <?php
+			
 			$prev = null;
 			$mas = null;
-			while($row = mysql_fetch_array($res))
+			foreach($connection->query('SELECT * FROM testtable') as $row) 
 			{
 				if ( $prev == null || $prev != $row[2]){					
 					if ($prev != null){
-						echo "</ul>"; ?>
-						<?php
+						echo "</ul>"; 
 						echo "</li><br>";	
 					}
 					?>
@@ -47,39 +45,10 @@
 		<br><br>
 		<hr><hr>
 		<?php
-			$qur=mysql_query("SELECT * FROM testtable");
-			echo "<br>Количество снимков ".mysql_num_rows($qur);
-		?>
-
-		
-		
-		
-		<hr><hr>
-		<p>тестовая форма для новой записи в бд тест с крипта и тд (это не трогать)</p>
-		<form action="script_tipa.php" method="post">
-			<label>Введите имя картинки</label><br>
-			<input type="text" name="pathImg"><br>
-			<label>Введите дату</label><br>
-			<input type="text" name="date"><br>
-			<label>Введите время</label><br>
-			<input type="text" name="time"><br>
-			<br>
-			<input type="submit" name="formSubmit" value="Добавить">
-		</form>
+			echo "<br>Количество снимков ".$connection->query('SELECT * FROM testtable')->rowCount();
+			?>
 	</div>
-	<div>
-		<!--<form action="script_tipa.php" method="post">
-			<label>Введите имя картинки</label><br>
-			<input type="text" name="pathImg"><br>
-			<label>Введите дату</label><br>
-			<input type="text" name="date"><br>
-			<label>Введите время</label><br>
-			<input type="text" name="time"><br>
-			<br>
-			<input type="submit" name="formSubmit" value="Добавить">
-		</form>-->
 	</div>
-</div>
 	
 	<script src="dist/js/lightbox-plus-jquery.min.js"></script>
 	<script>

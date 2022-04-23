@@ -1,20 +1,13 @@
 <?php 
-	$host='localhost'; // имя хоста 
-	$database='webtest'; // имя базы данных
-	$user='root'; // имя пользователя
-	$pswd=''; // пароль
-	
-	$dbh = mysql_connect($host, $user, $pswd) or die();
-		mysql_select_db($database) or die();
+	require_once 'connectBD.php';
 		
 	$dateFind = $_GET['date'];
 	$elements = array();
 	$pathname = "img/";
 	$nameZip =  "archive.zip";
 
-	$query = "SELECT * FROM testtable";
-	$res = mysql_query($query); 
-	while($row = mysql_fetch_array($res))
+
+	foreach($connection->query('SELECT * FROM testtable') as $row) 
 	{
 		if($row[2]==$dateFind)
 			array_push($elements,$row[1]);			
