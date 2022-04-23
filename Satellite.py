@@ -15,7 +15,7 @@ satellites_name.append("NOAA 20")
 
 SATELLITES_COUNT = len(satellites_name)
 
-logging.basicConfig(filename="log.log", level=logging.INFO)
+logging.basicConfig(filename="sputnik.log", level=logging.INFO)
 
 #############################################
 
@@ -46,6 +46,11 @@ class planningTime:
 
 #############################################
 
+#############################################
+
+# comports = serial.tools.list_ports.comports()
+
+#############################################
 
 while True:
 
@@ -108,13 +113,13 @@ while True:
     planning_list = []
 
     for i in list_of_times:
-        # print(satellites_name[i.index], "-> rise:",
-        #       i.rise.utc_strftime('%Y %b %d %H:%M:%S'),
-        #       "; culmination:", i.culm.utc_strftime('%Y %b %d %H:%M:%S'),
-        #       "; set:", i.set.utc_strftime('%Y %b %d %H:%M:%S'))
-        logging.info(satellites_name[i.index] + " -> rise: " + i.rise.utc_strftime('%Y %m %d %H:%M:%S')
-                  + " ; culmination: " + i.culm.utc_strftime('%Y %m %d %H:%M:%S') + " ; set: " +
-                  i.set.utc_strftime('%Y %m %d %H:%M:%S'))
+        print(satellites_name[i.index], "-> rise:",
+              i.rise.utc_strftime('%Y %b %d %H:%M:%S'),
+              "; culmination:", i.culm.utc_strftime('%Y %b %d %H:%M:%S'),
+              "; set:", i.set.utc_strftime('%Y %b %d %H:%M:%S'))
+        # logging.info(satellites_name[i.index] + " -> rise: " + i.rise.utc_strftime('%Y %m %d %H:%M:%S')
+        #           + " ; culmination: " + i.culm.utc_strftime('%Y %m %d %H:%M:%S') + " ; set: " +
+        #           i.set.utc_strftime('%Y %m %d %H:%M:%S'))
 
         curr = i.rise
         while curr.tt <= i.set.tt:
@@ -131,13 +136,13 @@ while True:
     for val in planning_list:
         curr_time = ts.now()
         time_to_sleep = val.time.utc_datetime() - curr_time.utc_datetime()
-        logging.info("curr time : " + curr_time.utc_strftime('%Y %m %d %H:%M:%S') +
-                  " | sleep time : " + str(time_to_sleep.seconds) + " seconds or " +
-                  str(time_to_sleep.microseconds) + " microseconds")
-        # print("curr time :", curr_time.utc_strftime('%Y %b %d %H:%M:%S'),
-        #       "| sleep time :", time_to_sleep.seconds, "seconds or", time_to_sleep.microseconds, "microseconds")
+        # logging.info("curr time : " + curr_time.utc_strftime('%Y %m %d %H:%M:%S') +
+        #           " | sleep time : " + str(time_to_sleep.seconds) + " seconds or " +
+        #           str(time_to_sleep.microseconds) + " microseconds")
+        print("curr time :", curr_time.utc_strftime('%Y %b %d %H:%M:%S'),
+              "| sleep time :", time_to_sleep.seconds, "seconds or", time_to_sleep.microseconds, "microseconds")
         time.sleep(time_to_sleep.seconds)
         #######
-        logging.info("time after sleep : " + val.time.utc_strftime('%Y %m %d %H:%M:%S'))
-        # print("time after sleep :", val.time.utc_strftime('%Y %b %d %H:%M:%S'), "\n------------------------")
+        # logging.info("time after sleep : " + val.time.utc_strftime('%Y %m %d %H:%M:%S'))
+        print("time after sleep :", val.time.utc_strftime('%Y %b %d %H:%M:%S'), "\n------------------------")
         #######
